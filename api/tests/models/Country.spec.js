@@ -1,5 +1,13 @@
-const countryModel = require('../../src/models/Country');
-const { Country, conn } = require('../../src/db');
+try{
+   var { Country, conn } = require('../../src/db');
+}catch(err){
+   console.log('Country not found');
+}
+try{
+   var countryModel = require('../../src/models/Country');
+}catch(err){
+   console.log('countryModel not found');
+}
 const { expect } = require('chai');
 const {
    sequelize,
@@ -51,7 +59,7 @@ describe('Country Structure', () => {
       subregion,
       area,
       population
-   } = Country.tableAttributes;
+   } = Country?.tableAttributes ?? {};
 
    describe('Property "id"', () => {
       it('"id" is a STRING', () => {
