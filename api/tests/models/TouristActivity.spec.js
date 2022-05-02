@@ -37,7 +37,6 @@ describe('Model Tourist_activity Properties', () => {
    checkModelName(model)('tourist_activity');
    
    [
-      'id',
       'name',
       'difficulty',
       'duration',
