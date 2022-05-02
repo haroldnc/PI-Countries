@@ -16,7 +16,7 @@ const {
    checkPropertyExists
 } = require('sequelize-test-helpers');
 
-describe('Country Model Validation', () => {
+describe('Model Country Validation', () => {
    it('Model Country is defined in src/models/Country.js', () => {
       expect(countryModel).not.to.be.undefined;
    });
@@ -30,7 +30,7 @@ describe('Country Model Validation', () => {
    });
 });
 
-describe('Country Model Properties', () => {
+describe('Model Country Properties', () => {
    const model = countryModel && countryModel(sequelize, dataTypes);
    const country = model && new model();
 
@@ -158,10 +158,10 @@ describe('Country database', () => {
    );
 
    const countries = [];
-   const letters = ['A','b','C','d','E']
+   const letters = ['A','b']
    let j, k;
 
-   for (let i=0; i<5; i++){
+   for (let i=0; i<2; i++){
       j = Math.floor(Math.random() * 4) + 1;  // Random number 1-4
       k = Math.floor(Math.random() * 10) + 1;  // Random number 1-10
 
@@ -189,7 +189,7 @@ describe('Country database', () => {
 
          it('"id" only accepts letter', (done) => {
             Country.create({...countries[0], id: '14q'})
-               .then(() => done(new Error('The "id" property only accepts letters')))
+               .then(() => done(new Error('The "id" property only accepts letters not numbers in string')))
                .catch(() => done());
          });
 
