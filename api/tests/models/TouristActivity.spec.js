@@ -128,6 +128,8 @@ describe('Tourist_activity database', () => {
       });
    }
 
+   beforeEach(() => Tourist_activity.sync({ force: true }));
+
    describe('Create new data in the database', () => {
       beforeEach(() => Tourist_activity.sync({ force: true }));
 
