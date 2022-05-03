@@ -26,7 +26,7 @@ module.exports = (sequelize, dataTypes) => {
 
    Tourist_activity.associate = (models) => {
       Tourist_activity.belongsToMany(models.Country, {
-         through: 'country_activity',
+         through: 'country_activities',
          foreignKey: 'activities',
          as: 'countries'
       });
