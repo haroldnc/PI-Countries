@@ -17,6 +17,7 @@
 }
 
 .principal {
+   background: var(--bg-color);
    height: 100vh;
    padding: 10px 10px;
 }
@@ -38,10 +39,6 @@
 }
 
 /*================= Main Component ===================*/
-.main {
-   background: var(--bg-color);
-}
-
 .world-img {
    width: 75%;
 }
@@ -58,3 +55,5 @@
    color: var(--text-color);
    text-align: center;
 }
+
+/*================= Home Component ===================*/
