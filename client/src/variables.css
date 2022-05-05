@@ -1,0 +1,10 @@
+/*========== Colores ==========*/
+:root {
+   --bg-color: #143F6B;
+   --bg-text-color: white;
+   --title-color: #F55353;
+   --text-color: #A7BBC7;
+   --btn-color: var(--title-color);
+   --btn-border-color: var(--btn-color);
+   --btn-text-color: white;
+}
