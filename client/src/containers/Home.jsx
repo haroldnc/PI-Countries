@@ -1,13 +1,11 @@
 import React from "react";
-import Description from "../components/Description";
+import NavBar from "./NavBar";
 import style from "./styles/Home.module.css";
-import worldImg from "../assets/world-countries.png";
 
 export default function Home() {
    return (
-      <main className={style.home}>
-         <img className={style.world_img} src={worldImg} alt="World Countries" />
-         <Description />
-      </main>
+      <div className={style.countries}>
+         <NavBar />
+      </div>
    );
 }

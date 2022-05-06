@@ -6,11 +6,11 @@
    height: 35%;
 }
 
-.home_desc > h1 {
+.title {
    color: var(--title-color);
 }
 
-.home_desc > p {
+.description {
    color: var(--text-color);
    text-align: center;
 }

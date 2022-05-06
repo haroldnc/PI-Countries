@@ -3,8 +3,11 @@
    --bg-color: #143F6B;
    --bg-text-color: white;
    --title-color: #F55353;
+   --title-color-hover: #f63d3d;
    --text-color: #A7BBC7;
    --btn-color: var(--title-color);
    --btn-border-color: var(--btn-color);
    --btn-text-color: white;
+   --btn-close-color: lightgray;
+   --btn-close-color-hover: gray;
 }

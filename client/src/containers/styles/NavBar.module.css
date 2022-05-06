@@ -1,0 +1,20 @@
+.nav_bar {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+   height: 90px;
+   margin-top: 1rem;
+}
+
+.home {
+   text-decoration: none;
+   font-size: xx-large;
+   color: var(--title-color);
+   font-weight: 500;
+}
+
+.home:hover {
+   color: var(--title-color-hover);
+}
