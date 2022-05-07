@@ -1,6 +1,5 @@
 import {
-   GET_COUNTRIES_BY_NAME,
-   GET_ALL_COUNTRIES
+   GET_COUNTRIES
 } from "../actions/actionsType";
 
 const initialState = {
@@ -9,11 +8,7 @@ const initialState = {
 
 export default function reducer(state=initialState, action){
    switch(action.type){
-      case GET_COUNTRIES_BY_NAME: return {
-         ...state,
-         countries: [...action.payload]
-      }
-      case GET_ALL_COUNTRIES: return {
+      case GET_COUNTRIES: return {
          ...state,
          countries: [...action.payload]
       }

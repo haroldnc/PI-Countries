@@ -1,6 +1,7 @@
 .search_bar {
    display: flex;
    justify-content: space-between;
+   margin-top: 1rem;
    align-items: center;
    height: 30px;
    width: 90%;
@@ -49,7 +50,7 @@
    cursor: pointer;
    color: var(--btn-close-color);
    font-size: large;
-   transform: translate(-6px,-1px);
+   transform: translate(-9px,0px);
 }
 
 .btn_clear:hover {

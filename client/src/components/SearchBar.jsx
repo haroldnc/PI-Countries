@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./styles/SearchBar.module.css";
-import { getCountriesByName } from "../redux/actions";
+import { getCountries } from "../redux/actions";
 
 export default function SearchBar() {
    const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export default function SearchBar() {
 
    const onSearch = (e) => {
       e.preventDefault();
-      getCountriesByName(name)(dispatch);
+      getCountries(name)(dispatch);
    }
 
    const onChange = (e) => {
@@ -18,11 +18,18 @@ export default function SearchBar() {
       setName(inp.value);
    }
 
+   const onClear = (e) => {
+      e.preventDefault();
+      const inp = document.getElementsByClassName(style.input)[0];
+      setName('')
+      inp.focus();
+   }
+
    return (
       <form className={style.search_bar}>
          <button className={style.btn_search} type="submit" value="" onClick={onSearch} />
-         <input className={style.input} type="search" placeholder="Buscar pais..." onChange={onChange} />
-         <button className={style.btn_clear} >&times;</button>
+         <input className={style.input} type="text" placeholder="Buscar pais..." onChange={onChange} value={name}/>
+         <button className={style.btn_clear} onClick={onClear} >&times;</button>
       </form>
    );
 }
