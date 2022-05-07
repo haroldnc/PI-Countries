@@ -33,10 +33,12 @@
 .input {
    background: none;
    border: none;
+   width: 245px;
 }
 
 .input:focus {
    outline: none;
+   border-bottom: 1px solid gray;
 }
 
 .btn_clear {
@@ -52,18 +54,4 @@
 
 .btn_clear:hover {
    color: var(--btn-close-color-hover);
-}
-
-.active {
-   display: flex;
-}
-
-.active .search_bar {
-   width: 260px;
-   border: 2px solid var(--btn-border-color);
-   background: var(--bg-text-color);
-}
-
-.active .icon {
-   display: none;
 }
