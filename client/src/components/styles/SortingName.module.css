@@ -1,0 +1,15 @@
+.label {
+	color: white;
+	font-weight: 500;
+	margin-right: .5rem;
+}
+
+.sort {
+	border-radius: 5px;
+	height: 100%;
+	transform: translate(0,-2px);
+}
+
+.sort:focus {
+	outline: none;
+}

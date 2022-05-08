@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import NavBar from "./NavBar";
 import Countries from "./Countries";
+import SortingCategory from "./SortingCategory";
 import style from "./styles/Home.module.css";
 import {
    getCountries,
@@ -24,6 +25,7 @@ export default function Home() {
    return (
       <div className={style.countries}>
          <NavBar />
+         <SortingCategory />
          <Countries />
       </div>
    );

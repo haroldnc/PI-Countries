@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
    GET_COUNTRIES,
+   SET_COUNTRIES,
    GET_COUNTRIES_BY_ID,
    SET_STATUS_LOADING,
    SET_CURRENT_PAGE
@@ -15,6 +16,13 @@ export function getCountries(name){
             }
          ))
          .catch(err => console.log(err.message));
+   }
+}
+
+export function setCountries(countries){
+   return {
+      type: SET_COUNTRIES,
+      payload: [...countries]
    }
 }
 

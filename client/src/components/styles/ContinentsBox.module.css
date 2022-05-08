@@ -1,0 +1,56 @@
+.continents {
+	display: inline-block;
+	background: white;
+	font-size: small;
+	border-radius: 5px;
+}
+
+.select {
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	padding: 2px 30px 2px 5px;
+}
+
+.select:after {
+	position: absolute;
+	content: "";
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	padding: 2.5px;
+	right: 6px;
+	top: 40%;
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+.select:active:after {
+	right: 8px;
+	top: 21%;
+}
+
+.items {
+	padding: 2px;
+	display: none;
+	margin: 0;
+	border: 1px solid #ccc;
+	border-top: none;
+	background: white;
+	position: absolute;
+	width: 136px;
+}
+
+.items li {
+	list-style: none;
+}
+
+.visible .select {
+	color: #0094ff;
+}
+
+.visible .items {
+	display: block;
+}

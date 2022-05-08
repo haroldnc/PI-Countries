@@ -9,8 +9,7 @@ export default function SearchBar() {
 
    const onSearch = (e) => {
       e.preventDefault();
-
-      const inp = document.getElementsByClassName(style.input)[0];
+      const inp = document.getElementsByClassName(style.input)[0];;
 
       if (!name){
          alert('Must enter a valid name.')

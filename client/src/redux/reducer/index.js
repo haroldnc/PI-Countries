@@ -1,5 +1,6 @@
 import {
    GET_COUNTRIES,
+   SET_COUNTRIES,
    GET_COUNTRIES_BY_ID,
    SET_STATUS_LOADING,
    SET_CURRENT_PAGE
@@ -9,12 +10,19 @@ const initialState = {
    countries: [],
    currentCountry: {},
    isLoading: false,
-   currentPage: 1
+   currentPage: 1,
+   sort: 'none',
+   continents_filter: [],
+   activities_filter: []
 }
 
 export default function reducer(state=initialState, action){
    switch(action.type){
       case GET_COUNTRIES: return {
+         ...state,
+         countries: [...action.payload]
+      }
+      case SET_COUNTRIES: return {
          ...state,
          countries: [...action.payload]
       }
