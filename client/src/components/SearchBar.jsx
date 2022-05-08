@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import style from "./styles/SearchBar.module.css";
-import { getCountries } from "../redux/actions";
+import { getCountries, setCurrentPage } from "../redux/actions";
 
 export default function SearchBar() {
    const dispatch = useDispatch();
@@ -9,7 +9,16 @@ export default function SearchBar() {
 
    const onSearch = (e) => {
       e.preventDefault();
-      getCountries(name)(dispatch);
+
+      const inp = document.getElementsByClassName(style.input)[0];
+
+      if (!name){
+         alert('Must enter a valid name.')
+         inp.focus();
+      } else {
+         getCountries(name)(dispatch);
+         dispatch(setCurrentPage(1));
+      }
    }
 
    const onChange = (e) => {

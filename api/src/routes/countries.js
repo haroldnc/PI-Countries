@@ -16,10 +16,13 @@ router.get('/', async (req, res) => {
                name: {
                   [Op.iLike]: `%${name}%`
                }
-            }
+            },
+            include: 'activities'
          });
       } else {
-         data = await Country.findAll();
+         data = await Country.findAll({
+            include: 'activities'
+         });
 
          if (!data.length){
             const result = await axios.get(urlApi);
@@ -33,7 +36,8 @@ router.get('/', async (req, res) => {
                   capital: (country.capital && country.capital[0]) || '',
                   subregion: country.subregion || country.region,
                   area: country.area,
-                  population: country.population
+                  population: country.population,
+                  activities: country.activities
                });
 
                Country.create(data[data.length-1]);
