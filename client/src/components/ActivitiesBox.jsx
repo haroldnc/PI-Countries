@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import style from "./styles/ActivitiesBox.module.css";
 import { addActivityFilter, delActivityFilter } from "../redux/actions";
 
-export default function ContinentsBox(){
+export default function ActivitiesBox(){
 	const activities = useSelector(state => state.activities);
 	const dispatch = useDispatch();
 

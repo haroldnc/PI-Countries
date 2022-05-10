@@ -1,0 +1,28 @@
+.nav {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	font-weight: 500;
+}
+
+.links {
+	display: flex;
+	justify-content: space-between;
+	width: 170px;
+}
+
+.home {
+	text-decoration: none;
+	color: white;
+}
+
+.create_activity {
+	text-decoration: none;
+	color: white;
+}
+
+.menu {
+	list-style: none;
+	color: white;
+	cursor: pointer;
+}

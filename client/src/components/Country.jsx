@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import style from "./styles/Country.module.css";
 
 export default function Country(props) {
-   const url = `/country?id=${props.id}`
+   const url = `/country/${props.id}`
 
    return (
       <div className={style.country}>
