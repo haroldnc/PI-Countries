@@ -38,32 +38,6 @@ export function getListPages(currentPage, numPages){
 	return list;
 }
 
-export function getContinents(countries){
-	const continents = [];
-
-	countries.forEach(country => {
-		if (!continents.includes(country.continent)){
-			continents.push(country.continent);
-		}
-	});
-
-	return continents;
-}
-
-export function getActivities(countries){
-	const activities = [];
-
-	countries.forEach(country => {
-		country.activities.forEach(act => {
-			if (!activities.includes(act)){
-			activities.push(act);
-		}
-		});
-	});
-
-	return activities;
-}
-
 export function sortCountries(countries, mode){
 	const sortByName = (ccur, cnext) => {
 		if (ccur.name > cnext.name) return 1;
@@ -83,5 +57,23 @@ export function sortCountries(countries, mode){
 		case 'asc_population': return countries.sort(sortByPopulation);
 		case 'desc_population': return countries.sort(sortByPopulation).reverse();
 		default: return countries;
+	}
+}
+
+export function filterByContinents(countries, continents) {
+	if (continents.length){
+		return countries.filter(country => continents.includes(country.continent));
+	} else {
+		return countries;
+	}
+}
+
+export function filterByActivities(countries, activities) {
+	if (activities.length){
+		return countries.filter(country => {
+			return country.activities.some(act => activities.includes(act))
+		})
+	} else {
+		return countries;
 	}
 }

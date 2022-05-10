@@ -1,33 +1,41 @@
-import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import style from "./styles/ContinentsBox.module.css";
-import { getContinents } from "../helpers";
+import { addContinentFilter, delContinentFilter } from "../redux/actions";
 
 export default function ContinentsBox(){
-	const countries = useSelector(state => state.countries);
+	const dispatch = useDispatch();
 
-	useEffect(() => {
+	const onClick = (e) => {
+		e.preventDefault();
 		const continents = document.getElementsByClassName(style.continents)[0];
-		const selectList = continents.getElementsByClassName(style.select)[0];
 
-		selectList.onclick = (e) => {
-			e.preventDefault();
-
-			if (continents.classList.contains(style.visible)){
-				continents.classList.remove(style.visible);
-			} else {
-				continents.classList.add(style.visible);
-			}
+		if (continents.classList.contains(style.visible)){
+			continents.classList.remove(style.visible);
+		} else {
+			continents.classList.add(style.visible);
 		}
-	},[]);
+	}
+
+	const onClickChk = (e) => {
+		if (e.target.checked) {
+			dispatch(addContinentFilter(e.target.parentElement.innerText.trim()));
+		} else {
+			dispatch(delContinentFilter(e.target.parentElement.innerText.trim()));
+		}
+	}
 
 	return (
 		<div className={`${style.continents}`}>
-			<span className={style.select}>Select Continents</span>
+			<span className={style.select} onClick={onClick}>Select Continents</span>
 			<ul className={style.items}>
-				{getContinents(countries).map(continent => {
-					return <li key={continent}><input type="checkbox" /> {continent}</li>
-				})}
+				<li><input type="checkbox" onClick={onClickChk}/> Africa</li>
+				<li><input type="checkbox" onClick={onClickChk}/> Antarctica</li>
+				<li><input type="checkbox" onClick={onClickChk}/> Asia</li>
+				<li><input type="checkbox" onClick={onClickChk}/> Europe</li>
+				<li><input type="checkbox" onClick={onClickChk}/> North America</li>
+				<li><input type="checkbox" onClick={onClickChk}/> Oceania</li>
+				<li><input type="checkbox" onClick={onClickChk}/> South America</li>
 			</ul>
 		</div>
 	)
