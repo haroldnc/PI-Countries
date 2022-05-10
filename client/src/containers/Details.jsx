@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import DetailsNav from "../components/DetailsNav";
 import CountryInfo from "../components/CountryInfo";
 import Activities from "./Activities";
+import FieldsBox from "../components/FieldsBox";
 import style from "./styles/Details.module.css";
 import axios from "axios";
 
@@ -25,6 +26,7 @@ export default function Details(){
 			<DetailsNav setFilter={setFilter} />
 			<h1 className={style.country}>{country.name}</h1>
 			<img className={style.flag} src={country.flag} alt={country.name} />
+			<FieldsBox fields={filter} setFields={setFilter} />
 			<CountryInfo country={country} filter={filter} />
 			<Activities activities={country.activities || []} />
 		</div>

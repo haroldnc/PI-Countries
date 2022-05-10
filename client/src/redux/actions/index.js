@@ -12,6 +12,7 @@ import {
    DEL_CONTINENT_FILTER,
    DEL_ACTIVITY_FILTER
 } from "./actionsType";
+import { deleteRepeat } from "../../helpers";
 
 export function getCountries(name){
    return (dispatch) => {
@@ -39,7 +40,7 @@ export function getActivities(){
       return axios.get("http://localhost:3001/activity")
          .then(result => dispatch({
             type: GET_ACTIVITIES,
-            payload: result.data
+            payload: deleteRepeat(result.data)
          }))
          .catch(err => console.log(err.message));
    }

@@ -29,15 +29,15 @@ export default function Home() {
          setStatusLoading(true)(dispatch);
          await getActivities()(dispatch);
          r = await getCountries('')(dispatch);
+         r = setCountries(filterByActivities(r.payload, activities))(dispatch);
          r = setCountries(sortCountries(r.payload, sortMode))(dispatch);
-         r = setCountries(filterByContinents(r.payload, continents))(dispatch);
-         setCountries(filterByActivities(r.payload, activities))(dispatch);
+         setCountries(filterByContinents(r.payload, continents))(dispatch);
          setStatusLoading(false)(dispatch);
          setCurrentPage(1)(dispatch);
       }
 
       loadData();
-   },[dispatch, sortMode, continents, activities]);
+   },[dispatch, sortMode, continents.length, activities.length]);
 
    return (
       <div className={style.countries}>

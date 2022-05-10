@@ -1,0 +1,30 @@
+.list {
+	width: 100%;
+}
+
+.close {
+	border: none;
+	background: none;
+	font-size: large;
+	margin-top: -2px;
+	color: gray;
+}
+
+.close:hover {
+	cursor: pointer;
+}
+
+.country {
+	display: flex;
+	justify-content: flex-start;
+	margin-left: 1rem;
+}
+
+.country span {
+	margin: 0;
+}
+
+.country span.name {
+	margin-left: 0.5rem;
+	font-size: small;
+}

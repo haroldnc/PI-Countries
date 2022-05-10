@@ -1,0 +1,79 @@
+.createpage {
+	display: flex;
+   flex-direction: column;
+   align-items: center;
+   background: var(--bg-color);
+   min-height: 100vh;
+   padding: 10px 10px;
+}
+
+.createpage form {
+	width: 290px;
+}
+
+.menu {
+	width: 290px;
+}
+
+.link {
+	text-decoration: none;
+	color: white;
+	font-weight: 500;
+}
+
+.link:hover {
+	color: lightgray;
+}
+
+.title {
+	color: var(--title-color);
+	margin: 1rem 0;
+}
+
+.field {
+	display: flex;
+	justify-content: space-between;
+	margin-top: .5rem;
+}
+
+.field label{
+	font-weight: 500;
+}
+
+.difficulty, .duration {
+	text-align: center;
+	width: 60px;
+}
+
+.difficulty {
+	margin-right: 147px;
+}
+
+.field span {
+	margin-right: 98px;
+}
+
+.season {
+	margin-right: 127px;
+}
+
+.countries {
+	flex-direction: column;
+}
+
+.submit{
+	margin: 2rem 0;
+	text-align: center;
+}
+
+.submit input {
+	padding: 0.2rem 1rem;
+	border-radius: 20px;
+	border: 2px solid var(--btn-color);
+	color: var(--title-color);
+	background: none;
+}
+
+.submit input:hover {
+	cursor: pointer;
+}

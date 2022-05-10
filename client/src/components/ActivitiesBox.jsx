@@ -20,9 +20,9 @@ export default function ActivitiesBox(){
 
 	const onClickChk = (e) => {
 		if (e.target.checked) {
-			dispatch(addActivityFilter(e.target.parentElement.innerText.trim()));
+			addActivityFilter(e.target.parentElement.innerText.trim())(dispatch);
 		} else {
-			dispatch(delActivityFilter(e.target.parentElement.innerText.trim()));
+			delActivityFilter(e.target.parentElement.innerText.trim())(dispatch);
 		}
 	}
 
@@ -31,7 +31,7 @@ export default function ActivitiesBox(){
 			<span className={style.select} onClick={onClick}>Select Activities</span>
 			<ul className={style.items}>
 				{activities.map(activity => {
-					return <li key={activity}><input type="checkbox" onClick={onClickChk} /> {activity}</li>
+					return <li key={`${activity.name}-${Math.random()}`}><input type="checkbox" onClick={onClickChk} /> {activity.name}</li>
 				})}
 			</ul>
 		</div>

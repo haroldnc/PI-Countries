@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export function getRange(page){
 	let start = 0;
 	let end = 9;
@@ -71,7 +73,7 @@ export function filterByContinents(countries, continents) {
 export function filterByActivities(countries, activities) {
 	if (activities.length){
 		return countries.filter(country => {
-			return country.activities.some(act => activities.includes(act))
+			return country.activities.some(act => activities.some(a => act.name === a.name))
 		})
 	} else {
 		return countries;
@@ -81,4 +83,41 @@ export function filterByActivities(countries, activities) {
 export function firstToCap(str) {
 	if (str?.length) return str[0].toUpperCase() + str.slice(1);
 	else return ''
+}
+
+export function getCountryIds(countries, listCountries) {
+	return listCountries.map(country => {
+		let id;
+
+		for(let c of countries){
+			if (c.name === country) {
+				id = c.id;
+				break;
+			}
+		}
+
+		return id;
+	})
+}
+
+export function createActivity(activity, countriesId) {
+	axios.post("http://localhost:3001/activity", {
+		name: activity.name,
+		difficulty: activity.difficulty,
+		duration: activity.duration,
+		season: activity.season,
+		countriesId: countriesId
+	})
+}
+
+export function deleteRepeat(activities){
+	const acti = [];
+
+	for (let act of activities){
+		if (acti.every(a => a.name !== act.name)){
+			acti.push(act);
+		}
+	}
+
+	return acti;
 }
