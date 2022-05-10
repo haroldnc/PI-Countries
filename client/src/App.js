@@ -1,3 +1,4 @@
+import './App.css';
 import './variables.css';
 import { Route, Routes } from "react-router-dom";
 import Index from "./containers/Index"
@@ -7,12 +8,14 @@ import CreateActivity from "./containers/CreateActivity";
 
 function App() {
    return (
+      <div className='App'>
       <Routes>
          <Route path="/" element={<Index />} />
          <Route path="/home" element={<Home />} />
          <Route path="/country/:id" element={<Details />} />
          <Route path="/createActivity" element={<CreateActivity />} />
       </Routes>
+      </div>
    );
 }
 

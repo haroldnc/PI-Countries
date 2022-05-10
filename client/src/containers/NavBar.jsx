@@ -6,7 +6,7 @@ import style from "./styles/NavBar.module.css";
 export default function NavBar() {
    return (
       <nav className={style.nav_bar}>
-         <Link className={style.home} to="/">Paises del Mundo</Link>
+         <Link className={style.home} to="/">Country App</Link>
          <SearchBar />
       </nav>
    );

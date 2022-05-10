@@ -4,7 +4,10 @@
    align-items: center;
    background: var(--bg-color);
    min-height: 100vh;
+   max-width: 1000px;
+   box-shadow: 0 0 5px 0 black;
    padding: 10px 10px;
+   margin: auto;
 }
 
 .createpage form {
@@ -12,7 +15,8 @@
 }
 
 .menu {
-	width: 290px;
+	width: 90%;
+	max-width: 800px;
 }
 
 .link {

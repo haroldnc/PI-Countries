@@ -36,7 +36,7 @@ export default function SearchBar() {
    return (
       <form className={style.search_bar}>
          <button className={style.btn_search} type="submit" value="" onClick={onSearch} />
-         <input className={style.input} type="text" placeholder="Buscar pais..." onChange={onChange} value={name}/>
+         <input className={style.input} type="text" placeholder="Search countries..." onChange={onChange} value={name}/>
          <button className={style.btn_clear} onClick={onClear} >&times;</button>
       </form>
    );

@@ -30,3 +30,21 @@
    background: var(--btn-color);
    color: var(--btn-text-color);
 }
+
+@media (min-width: 720px) {
+  .home_desc {
+      width: 50%;
+  }
+}
+
+@media (min-width: 870px) {
+  .home_desc {
+      width: 40%;
+  }
+}
+
+@media (min-width: 1000px) {
+  .home_desc {
+      width: 50%;
+  }
+}
