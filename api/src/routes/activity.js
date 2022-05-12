@@ -40,7 +40,7 @@ router.post('/', async (req, res) => {
 
       res.status(200).json({ message: 'The activity was sucessfully created' });
    } catch (error) {
-      res.status(404).json({ error: error.message });
+      res.status(422).json({ error: error.message });
    }
 });
 
