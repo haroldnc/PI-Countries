@@ -72,9 +72,19 @@ export function filterByContinents(countries, continents) {
 
 export function filterByActivities(countries, activities) {
 	if (activities.length){
-		return countries.filter(country => {
-			return country.activities.some(act => activities.some(a => act.name === a.name))
-		})
+		const filtered = [];
+
+		for (let i=0; i<countries.length; i++){
+			for (let j=0; j<countries[i].activities.length; j++){
+				console.log(countries[i].activities);
+				if(activities.includes(countries[i].activities[j].name)){
+					filtered.push(countries[i]);
+					break;
+				}
+			}
+		}
+
+		return filtered;
 	} else {
 		return countries;
 	}
@@ -127,14 +137,14 @@ export function createActivity(activity, countriesId) {
 	})
 }
 
-/*export function deleteRepeat(activities){
+export function deleteRepeat(activities){
 	const acti = [];
 
 	for (let act of activities){
-		if (acti.every(a => a.name !== act.name)){
+		if (acti.every(a => a !== act)){
 			acti.push(act);
 		}
 	}
 
 	return acti;
-}*/
+}

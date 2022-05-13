@@ -35,6 +35,7 @@ export default function SortingCategory(){
 			/>
 			<ActivitiesBox
 				activities={getActivitiesName(countries)}
+				chkActivities={activities}
 				setActivities={setActivities}
 			/>
 		</form>
