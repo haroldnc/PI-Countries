@@ -36,11 +36,11 @@ router.get('/', async (req, res) => {
                   capital: (country.capital && country.capital[0]) || '',
                   subregion: country.subregion || country.region,
                   area: country.area,
-                  population: country.population,
-                  activities: country.activities
+                  population: country.population
                });
 
                Country.create(data[data.length-1]);
+               data[data.length-1].activities = [];
             });
          }
       }
