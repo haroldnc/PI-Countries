@@ -1,38 +1,40 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useRef } from "react";
 import style from "./styles/ActivitiesBox.module.css";
-import { addActivityFilter, delActivityFilter } from "../redux/actions";
 
-export default function ActivitiesBox(){
-	const activities = useSelector(state => state.activities);
-	const dispatch = useDispatch();
+export default function ActivitiesBox({ activities, setActivities }){
+	const divActivities = useRef();
 
 	const onClick = (e) => {
 		e.preventDefault();
-		const activities = document.getElementsByClassName(style.activities)[0];
 
-		if (activities.classList.contains(style.visible)){
-			activities.classList.remove(style.visible);
+		if (divActivities.current.classList.contains(style.visible)){
+			divActivities.current.classList.remove(style.visible);
 		} else {
-			activities.classList.add(style.visible);
+			divActivities.current.classList.add(style.visible);
 		}
 	}
 
 	const onClickChk = (e) => {
+		const act = e.target.parentElement.innerText.trim();
+
 		if (e.target.checked) {
-			addActivityFilter(e.target.parentElement.innerText.trim())(dispatch);
+			setActivities([...activities, act]);
 		} else {
-			delActivityFilter(e.target.parentElement.innerText.trim())(dispatch);
+			setActivities(activities.filter(cur => cur !== act));
 		}
 	}
 
 	return (
-		<div className={`${style.activities}`}>
+		<div className={`${style.activities}`} ref={divActivities}>
 			<span className={style.select} onClick={onClick}>Select Activities</span>
 			<ul className={style.items}>
 				{activities.map(activity => {
-					return <li key={`${activity.name}-${Math.random()}`}><input type="checkbox" onClick={onClickChk} /> {activity.name}</li>
-				})}
+					return (
+						<li key={`${activity}-${Math.random()}`}>
+							<input type="checkbox" onClick={onClickChk} /> {activity}
+						</li>
+					)}
+				)}
 			</ul>
 		</div>
 	)

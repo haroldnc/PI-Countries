@@ -2,9 +2,10 @@ import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import style from "./styles/SelectCountries.module.css";
 import { getCountries } from "../redux/actions";
+import { sortCountries } from "../helpers";
 
 export default function ListCountries({ reference, currentList, setCountries }){
-	const countries = useSelector(state => state.countries);
+	const countries = useSelector(state => sortCountries(state.countries,'asc_name'));
 	const dispatch = useDispatch();
 	const list = useRef(null);
 

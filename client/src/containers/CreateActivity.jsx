@@ -16,22 +16,18 @@ export default function CreateActivity(){
 
 
 	const onChangeName = function(e) {
-		e.preventDefault();
 		setName(e.target.value);
 	}
 
 	const onChangeDifficulty = function(e) {
-		e.preventDefault();
 		setDifficulty(parseInt(e.target.value));
 	}
 
 	const onChangeDuration = function(e) {
-		e.preventDefault();
 		setDuration(parseInt(e.target.value));
 	}
 
 	const onChangeSeason = function(e) {
-		e.preventDefault();
 		setSeason(e.target.value);
 	}
 
@@ -47,19 +43,34 @@ export default function CreateActivity(){
 			},
 			getCountryIds(ctry, countries));
 
-			document.getElementById('difficulty').value="";
-			document.getElementById('duration').value="";
-			document.getElementById('season').value="";
+			document.getElementById('season').selectedIndex = 0;
 			setCountries([]);
 			setName('');
+			setDifficulty(1);
+			setDuration(1);
+			setSeason('Fall');
 		}
 
-		create();
+		if (name === ''){
+			alert('Name is required');
+		} else if (!/^[a-zA-Z]+$/.test(name)){
+			alert('Name only acept letters');
+		} else if (difficulty > 5 || difficulty < 1){
+			console.log(difficulty);
+			alert('Difficulty not is a valid number');
+		} else if (duration > 30) {
+			alert('Duration not is a valid number');
+		} else if (!countries.length) {
+			alert('Please, select countries');
+		}
+		else {
+			create();
+		}
 	}
 
 	useEffect(function() {
 		document.getElementById("name").focus()
-	},[])
+	})
 
 	return (
 		<div className={style.createpage}>
@@ -70,12 +81,12 @@ export default function CreateActivity(){
 			<form action="#" method="post">
 				<div className={style.field}>
 					<label htmlFor="name">Name: </label>
-					<input type="text" name="name" id="name" onChange={onChangeName} value={name}/>
+					<input type="text" name="name" id="name" onChange={onChangeName} value={name} placeholder="Activity Name" />
 				</div>
 
 				<div className={style.field}>
 					<label htmlFor="difficulty">Difficulty: </label>
-					<input className={style.difficulty} type="number" name="difficulty" id="difficulty"  min="1" max="5" onChange={onChangeDifficulty} defaultValue="1" />
+					<input className={style.difficulty} type="number" name="difficulty" id="difficulty"  min="1" max="5" onChange={onChangeDifficulty} value={difficulty} />
 				</div>
 
 				<div className={style.field}>

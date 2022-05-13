@@ -1,43 +1,28 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import NavBar from "./NavBar";
 import Countries from "./Countries";
 import SortingCategory from "./SortingCategory";
 import style from "./styles/Home.module.css";
 import {
-   sortCountries,
-   filterByContinents,
-   filterByActivities
-} from "../helpers";
-import {
    getCountries,
-   getActivities,
    setStatusLoading,
-   setCountries,
-   setCurrentPage,
+   setFilteredCountries
 } from "../redux/actions";
 
 export default function Home() {
-   const sortMode = useSelector(state => state.sortMode);
-   const continents = useSelector(state => state.continents_filter);
-   const activities = useSelector(state => state.activities_filter);
    const dispatch = useDispatch();
 
    useEffect(() => {
-      const loadData = async () => {
-         let r;
+      const loadCountries = async () => {
          setStatusLoading(true)(dispatch);
-         await getActivities()(dispatch);
-         r = await getCountries('')(dispatch);
-         r = setCountries(filterByActivities(r.payload, activities))(dispatch);
-         r = setCountries(sortCountries(r.payload, sortMode))(dispatch);
-         setCountries(filterByContinents(r.payload, continents))(dispatch);
+         const r = await getCountries('')(dispatch);
+         setFilteredCountries(r.payload)(dispatch);
          setStatusLoading(false)(dispatch);
-         setCurrentPage(1)(dispatch);
       }
 
-      loadData();
-   },[dispatch, sortMode, continents.length, activities.length]);
+      loadCountries();
+   }, [dispatch]);
 
    return (
       <div className={style.countries}>

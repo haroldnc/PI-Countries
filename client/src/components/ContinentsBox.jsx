@@ -1,32 +1,31 @@
-import React from "react";
-import { useDispatch } from "react-redux";
+import React, { useRef } from "react";
 import style from "./styles/ContinentsBox.module.css";
-import { addContinentFilter, delContinentFilter } from "../redux/actions";
 
-export default function ContinentsBox(){
-	const dispatch = useDispatch();
+export default function ContinentsBox({ continents, setContinents }){
+	const divContinents = useRef();
 
 	const onClick = (e) => {
 		e.preventDefault();
-		const continents = document.getElementsByClassName(style.continents)[0];
 
-		if (continents.classList.contains(style.visible)){
-			continents.classList.remove(style.visible);
+		if (divContinents.current.classList.contains(style.visible)){
+			divContinents.current.classList.remove(style.visible);
 		} else {
-			continents.classList.add(style.visible);
+			divContinents.current.classList.add(style.visible);
 		}
 	}
 
 	const onClickChk = (e) => {
+		const c = e.target.parentElement.innerText.trim();
+
 		if (e.target.checked) {
-			dispatch(addContinentFilter(e.target.parentElement.innerText.trim()));
+			setContinents([...continents, c]);
 		} else {
-			dispatch(delContinentFilter(e.target.parentElement.innerText.trim()));
+			setContinents(continents.filter(cur => cur !== c));
 		}
 	}
 
 	return (
-		<div className={`${style.continents}`}>
+		<div className={`${style.continents}`} ref={divContinents}>
 			<span className={style.select} onClick={onClick}>Select Continents</span>
 			<ul className={style.items}>
 				<li><input type="checkbox" onClick={onClickChk}/> Africa</li>

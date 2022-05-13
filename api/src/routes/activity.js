@@ -2,19 +2,6 @@ const { Router } = require('express');
 const { Tourist_activity } = require('../db');
 const router = Router();
 
-router.get('/', async (req, res) => {
-   try {
-      const activities = await Tourist_activity.findAll({
-         attributes: ['name'],
-         distinct: true,
-         order: [['name', 'ASC']]
-      });
-      res.status(200).json(activities);
-   } catch(error) {
-      res.status(404).json({ error: error.message });
-   }
-});
-
 router.post('/', async (req, res) => {
    const {
       name,

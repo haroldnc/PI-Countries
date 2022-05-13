@@ -80,6 +80,23 @@ export function filterByActivities(countries, activities) {
 	}
 }
 
+export function getActivitiesName(countries) {
+	const activities = [];
+	let act;
+
+	countries.forEach(country => {
+		country.activities.forEach(activity => {
+			act = firstToCap(activity.name)
+			
+			if (!activities.includes(act)){
+				activities.push(act);
+			}
+		});
+	});
+
+	return activities;
+}
+
 export function firstToCap(str) {
 	if (str?.length) return str[0].toUpperCase() + str.slice(1);
 	else return ''
@@ -110,7 +127,7 @@ export function createActivity(activity, countriesId) {
 	})
 }
 
-export function deleteRepeat(activities){
+/*export function deleteRepeat(activities){
 	const acti = [];
 
 	for (let act of activities){
@@ -120,4 +137,4 @@ export function deleteRepeat(activities){
 	}
 
 	return acti;
-}
+}*/

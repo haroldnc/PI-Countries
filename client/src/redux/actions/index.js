@@ -1,18 +1,11 @@
 import axios from "axios";
 import {
    GET_COUNTRIES,
-   SET_COUNTRIES,
-   GET_ACTIVITIES,
    GET_COUNTRIES_BY_ID,
+   SET_FILTERED_COUNTRIES,
    SET_STATUS_LOADING,
-   SET_CURRENT_PAGE,
-   SET_SORT_MODE,
-   ADD_CONTINENT_FILTER,
-   ADD_ACTIVITY_FILTER,
-   DEL_CONTINENT_FILTER,
-   DEL_ACTIVITY_FILTER
+   SET_CURRENT_PAGE
 } from "./actionsType";
-import { deleteRepeat } from "../../helpers";
 
 export function getCountries(name){
    return (dispatch) => {
@@ -26,26 +19,6 @@ export function getCountries(name){
    }
 }
 
-export function setCountries(countries){
-   return (dispatch) => {
-      return dispatch({
-         type: SET_COUNTRIES,
-         payload: [...countries]
-      })
-   }
-}
-
-export function getActivities(){
-   return (dispatch) => {
-      return axios.get("http://localhost:3001/activity")
-         .then(result => dispatch({
-            type: GET_ACTIVITIES,
-            payload: deleteRepeat(result.data)
-         }))
-         .catch(err => console.log(err.message));
-   }
-}
-
 export function getCountriesById(id){
    return async (dispatch) => {
       return await axios.get("http://localhost:3001/countries/" + id)
@@ -55,6 +28,15 @@ export function getCountriesById(id){
             }
          ))
          .catch(err => console.log(err.message));
+   }
+}
+
+export function setFilteredCountries(countries){
+   return (dispatch) => {
+      return dispatch({
+         type: SET_FILTERED_COUNTRIES,
+         payload: countries
+      });
    }
 }
 
@@ -72,51 +54,6 @@ export function setCurrentPage(page){
       dispatch({
          type: SET_CURRENT_PAGE,
          payload: page
-      })
-   }
-}
-
-export function setSortMode(mode){
-   return (dispatch) => {
-      return dispatch({
-         type: SET_SORT_MODE,
-         payload: mode
-      })
-   }
-}
-
-export function addContinentFilter(continent){
-   return (dispatch) => {
-      return dispatch({
-         type: ADD_CONTINENT_FILTER,
-         payload: continent
-      })
-   }
-}
-
-export function addActivityFilter(activity) {
-   return (dispatch) => {
-      return dispatch({
-         type: ADD_ACTIVITY_FILTER,
-         payload: activity
-      })
-   }
-}
-
-export function delContinentFilter(continent){
-   return (dispatch) => {
-      dispatch({
-         type: DEL_CONTINENT_FILTER,
-         payload: continent
-      })
-   }
-}
-
-export function delActivityFilter(activity) {
-   return (dispatch) => {
-      dispatch({
-         type: DEL_ACTIVITY_FILTER,
-         payload: activity
       })
    }
 }

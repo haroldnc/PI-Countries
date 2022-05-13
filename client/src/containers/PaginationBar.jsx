@@ -7,7 +7,7 @@ import { setCurrentPage } from "../redux/actions";
 export default function PaginationBar(){
 	const dispatch = useDispatch();
 	const currentPage = useSelector(state => state.currentPage);
-	const size = useSelector(state => state.countries.length);
+	const size = useSelector(state => state.countriesFiltered.length);
 
 	const onClickNumber = (e, n) => {
 		e.preventDefault();

@@ -1,22 +1,17 @@
 import React from "react";
-import { useDispatch } from "react-redux";
 import style from "./styles/SortingName.module.css";
-import { setSortMode } from "../redux/actions";
 
-export default function SortingName(){
-	const dispatch = useDispatch();
-
+export default function SortingName({ setSortMode }){
 	const onChange = (e) => {
 		e.preventDefault();
-		const option = e.target.options[e.target.selectedIndex].value;
+		const mode = e.target.options[e.target.selectedIndex].value;
 
-		dispatch(setSortMode(option));
+		setSortMode(mode);
 	}
 
 	return (
 		<div>
 			<select className={style.sort} onChange={onChange} id="sort">
-				<option value="none">none</option>
 				<optgroup label="Sort by name">
 					<option value="asc_name">ascending</option>
 					<option value="desc_name">descending</option>

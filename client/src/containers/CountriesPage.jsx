@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 import { getRange } from "../helpers";
 
 export default function CountriesPage({ page }) {
-   const countries = useSelector(state => state.countries);
+   const countries = useSelector(state => state.countriesFiltered);
    const isLoading = useSelector(state => state.isLoading);
 
    if (isLoading) {
