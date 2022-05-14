@@ -1,0 +1,41 @@
+.loading {
+   overflow: hidden;
+   width: 85px;
+   margin-right: 28px;
+   font-size: x-large;
+   animation-duration: 2s;
+   animation-name: load;
+   animation-iteration-count: infinite;
+}
+
+@keyframes load {
+   0% {
+      width: 85px;
+      margin-right: 28px;
+   }
+
+   20% {
+      width: 93px;
+      margin-right: 20px;
+   }
+
+   40% {
+      width: 98px;
+      margin-right: 15px;
+   }
+
+   60% {
+      width: 103px;
+      margin-right: 10px;
+   }
+
+   80% {
+      width: 108px;
+      margin-right: 5px;
+   }
+
+   100% {
+      width: 113px;
+      margin-right: 0px;
+   }
+}

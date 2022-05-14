@@ -1,0 +1,32 @@
+.activities {
+	width: 250px;
+}
+
+.title {
+	color: white;
+	text-align: center;
+}
+
+.activitiesBox {
+	margin-top: .5rem;
+	margin-left: 1.3rem;
+}
+
+.activity {
+	font-size: large;
+	font-weight: 500;
+	color: white;
+	margin-bottom: .5rem;
+}
+
+.property {
+	font-size: medium;
+	font-weight: normal;
+	list-style: none;
+	margin-left: 1rem;
+}
+
+.message {
+	margin-top: 1rem;
+	text-align: center;
+}

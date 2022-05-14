@@ -1,0 +1,61 @@
+.fields {
+	display: inline-block;
+	background: white;
+	font-size: small;
+	border-radius: 5px;
+	width: 106px;
+	margin-top: 1rem;
+}
+
+.select {
+	border-radius: 5px;
+	cursor: pointer;
+	position: relative;
+	padding: 2px 42px 5px 5px;
+	font-size: x-small;
+	border-left: 2px solid gray;
+	border-top: 2px solid gray;
+}
+
+.select:after {
+	position: absolute;
+	content: "";
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+	padding: 2.5px;
+	right: 6px;
+	top: 5px;
+	-moz-transform: rotate(-135deg);
+	-ms-transform: rotate(-135deg);
+	-o-transform: rotate(-135deg);
+	-webkit-transform: rotate(-135deg);
+	transform: rotate(-135deg);
+}
+
+.select:active:after {
+	right: 8px;
+	top: 21%;
+}
+
+.items {
+	padding: 2px;
+	display: none;
+	margin: 0;
+	border: 1px solid #ccc;
+	border-top: none;
+	background: white;
+	position: absolute;
+	width: 110px;
+}
+
+.items li {
+	list-style: none;
+}
+
+.visible .select {
+	color: #0094ff;
+}
+
+.visible .items {
+	display: block;
+}

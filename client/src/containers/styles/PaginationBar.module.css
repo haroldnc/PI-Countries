@@ -1,0 +1,30 @@
+.pagination {
+	display: flex;
+	justify-content: center;
+	width: 90%;
+	margin: 2rem 0;
+}
+
+.page, .prev, .next, .first, .last {
+	background: #A7BBC7;
+	color:  var(--bg-color);
+	font-weight: 500;
+	width: 50px;
+	margin: 0 1px;
+	text-align: center;
+	font-size: small;
+	border: none;
+}
+
+.page:hover, .prev:hover, .next:hover, .first:hover, .last:hover {
+	background: white;
+	cursor: pointer;
+}
+
+.active {
+	background: white;
+}
+
+.active:hover {
+	cursor: default;
+}
